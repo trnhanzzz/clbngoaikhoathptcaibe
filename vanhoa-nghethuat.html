@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLB Văn hóa - Nghệ thuật Trường THPT Cái Bè</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Container chung */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            color: white;
+            background: linear-gradient(45deg, #e84393, #a29bfe, #d2b4de);
+            animation: pulseBG 8s ease infinite;
+            overflow: hidden;
+        }
+        @keyframes pulseBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('hinhanh/nghethuat.jpg') no-repeat center/cover;
+            opacity: 0.5;
+            z-index: 0;
+            filter: blur(6px);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            text-align: left;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            -webkit-text-stroke: 1.5px #e84393;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(232, 67, 147, 0.7);
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.3em;
+            color: #f0f0ff;
+        }
+        .hero-img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease;
+            justify-self: center;
+        }
+        .hero-img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Hero */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; height: auto; padding: 40px 0; }
+            .hero-content { text-align: center; }
+            .hero h1 { font-size: 2.5em; -webkit-text-stroke: 1px #e84393; }
+            .hero-img { max-width: 400px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8em; -webkit-text-stroke: 0.8px #e84393; }
+            .hero-img { max-width: 300px; }
+        }
+
+        /* Slogan Section */
+        .slogan {
+            padding: 60px 0;
+            background: #f9f0f5;
+            text-align: center;
+        }
+        .slogan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 20px 0;
+        }
+        .block_3 {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        .block_3:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: linear-gradient(145deg, #e84393, #d2b4de);
+            color: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .block_3 h2 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            color: #e84393;
+            transition: color 0.4s;
+        }
+        .block_3:hover h2 {
+            color: white;
+        }
+        .block_3 p {
+            font-size: 1.1em;
+            color: #555;
+            transition: color 0.4s;
+        }
+        .block_3:hover p {
+            color: #fff;
+        }
+
+        /* Content Section */
+        .content-table {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #fff, #f9f0f5);
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        .content-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            background: #fff;
+            padding: 15px;
+        }
+        .content-card .text {
+            padding: 20px;
+        }
+        .content-card h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #e84393;
+            background: linear-gradient(to right, #e84393, #a29bfe);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+        .content-card p, .content-card ul {
+            font-size: 1.1em;
+            color: #444;
+            line-height: 1.8;
+        }
+        .content-card ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+        .content-card ul li {
+            padding-left: 25px;
+            margin: 10px 0;
+            position: relative;
+        }
+        .content-card ul li:before {
+            content: "🎨"; /* Biểu tượng nghệ thuật */
+            color: #a29bfe;
+            position: absolute;
+            left: 0;
+        }
+        .join-card {
+            grid-column: span 2;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(145deg, #e84393, #d2b4de);
+            color: white;
+        }
+        .join-card h3 {
+            font-size: 2em;
+            color: white;
+            background: none;
+            margin-bottom: 20px;
+        }
+        .join-card p {
+            color: #f0f0ff;
+        }
+        a {
+            display: inline-block;
+            color: #e84393;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            background: rgba(232, 67, 147, 0.1);
+            transition: all 0.4s ease;
+        }
+        a:hover {
+            color: white;
+            background: #e84393;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .join-card a {
+            background: white;
+            color: #e84393;
+            margin-top: 20px;
+        }
+        .join-card a:hover {
+            background: #a29bfe;
+            color: white;
+        }
+
+        /* Responsive Content */
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .join-card { grid-column: span 1; }
+            .content-card img { height: 250px; }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #1e272e);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        footer .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin: 15px 0;
+            transition: transform 0.3s;
+        }
+        footer ul li:hover {
+            transform: translateX(10px);
+        }
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        footer a:hover {
+            color: #d2b4de;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CLB Văn Hóa - Nghệ Thuật</h1>
+            <p>Nơi khơi nguồn sáng tạo, lan tỏa cảm hứng và tỏa sáng tài năng!</p>
+        </div>
+        <img src="hinhanh/nghethuat.jpg" alt="CLB Văn hóa - Nghệ thuật" class="hero-img">
+    </section>
+
+    <!-- Slogan Section -->
+    <section class="slogan">
+        <div class="container">
+            <div class="slogan-grid">
+                <div class="block_3">
+                    <h2>Sáng Tạo</h2>
+                    <p>Khơi nguồn cảm hứng nghệ thuật</p>
+                </div>
+                <div class="block_3">
+                    <h2>Đam Mê</h2>
+                    <p>Cháy hết mình trong từng tác phẩm</p>
+                </div>
+                <div class="block_3">
+                    <h2>Tỏa Sáng</h2>
+                    <p>Thể hiện tài năng độc đáo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <div class="content-table">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="hinhanh/nghethuat1.jpg" alt="Hội họa">
+                    <div class="text">
+                        <h3>Giới Thiệu CLB</h3>
+                        <p>CLB Văn hóa - Nghệ thuật THPT Cái Bè là nơi hội tụ những tâm hồn yêu nghệ thuật, khát khao khám phá và phát triển tài năng sáng tạo.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="hinhanh/nghethuat2.jpg" alt="Âm nhạc">
+                    <div class="text">
+                        <h3>Lĩnh Vực Nghệ Thuật</h3>
+                        <ul>
+                            <li><strong>Hội Họa:</strong> Sáng tạo qua nét cọ</li>
+                            <li><strong>Âm Nhạc:</strong> Cảm xúc qua giai điệu</li>
+                            <li><strong>Văn Học:</strong> Câu chuyện đầy cảm hứng</li>
+                            <li><strong>Nhảy Hiện Đại:</strong> Cá tính qua chuyển động</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-card join-card">
+                    <h3>Tham Gia Ngay</h3>
+                    <p>Bạn yêu nghệ thuật? Gia nhập CLB để tạo nên những tác phẩm độc đáo và lưu giữ thanh xuân rực rỡ!</p>
+                    <a href="dangki.html">Đăng Ký Ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <p>Liên Hệ:</p>
+                    <ul>
+                        <li>Điện thoại: 02733824355</li>
+                        <li>Website: <a href="index.html">Quay lại CLB Ngoại khóa</a></li>
+                        <li>Tham gia: <a href="dangki.html">Mẫu Đăng Ký</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>Khám Phá Thêm:</p>
+                    <ul>
+                        <li><a href="thethao.html">CLB Thể Thao</a></li>
+                        <li><a href="vanhoa-nghethuat.html">CLB Văn Hóa - Nghệ Thuật</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
